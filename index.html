@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- TSD-4RT | RG / GA | 22.09.2026. -->
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
@@ -212,13 +213,17 @@
     <div class="newsletter-kartica">
         <h2>Ostanite Informirani</h2>
         <p>Prijavite se na naš Newsletter i primajte najnovije sigurnosne savjete i obavijesti o kibernetičkim prijetnjama direktno u ulaznu poštu.</p>
+                
+           <form action="https://formspree.io/f/xkjgrvwo" method="POST" class="newsletter-forma">
+                    <input type="email" name="email" placeholder="Unesite vašu e-mail adresu" required>
+                    
+                    <button type="submit" class="btn-newsletter">Prijavi se</button>
+                </form>
         
-        <form onsubmit="return prijavaNewsletter(event)" class="newsletter-forma">
-            <input type="email"  id="email" name="email" placeholder="Unesite vašu e-mail adresu..." required>
-            <button type="submit" class="btn-newsletter">Prijavi se</button>
-        </form>
-        <p class="odgovor-newsletter"></p>
-    </div>
+                <p class="odgovor-newsletter"></p>
+            </div>
+        </section>
+    
 </section>
 
  
