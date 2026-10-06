@@ -9,7 +9,7 @@
 </head>
 <body>
 
-     <?php include "dijelovi/zaglavlje.php"; ?>
+     <?php include "zaglavlje.php"; ?>
 
     <!-- PPUK SADRŽAJ -->
     <main class="ppuk-stranica">
@@ -63,7 +63,7 @@
         </div>
     </main>
 
-  <?php include "dijelovi/podnozje.php"; ?>
+  <?php include "podnozje.php"; ?>
 
 </body>
 </html>

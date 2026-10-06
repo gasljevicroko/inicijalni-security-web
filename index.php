@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <?php include "dijelovi/zaglavlje.php"; ?>
+  <?php include "zaglavlje.php"; ?>
 
     <!-- HERO -->
    <section class="hero">
@@ -228,7 +228,7 @@
 
  
 
- <?php include "dijelovi/podnozje.php"; ?>
+ <?php include "podnozje.php"; ?>
 
     
 

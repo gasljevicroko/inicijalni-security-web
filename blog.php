@@ -9,7 +9,7 @@
 </head>
 <body>
 
-   <?php include "dijelovi/zaglavlje.php"; ?>
+   <?php include "zaglavlje.php"; ?>
 
     <!-- BLOG STRANICA MAIN -->
     <main class="blog-stranica">
@@ -61,7 +61,7 @@
         </div>
     </main>
 
-     <?php include "dijelovi/podnozje.php"; ?>
+     <?php include "podnozje.php"; ?>
 
 </body>
 </html>
