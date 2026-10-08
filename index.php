@@ -11,6 +11,19 @@
 <body>
 
   <?php include "zaglavlje.php"; ?>
+  <?php
+
+$sat = (int) date("G");
+
+if ($sat < 12) {
+    echo "Dobro jutro";
+} elseif ($sat < 18) {
+    echo "Dobar dan";
+} else {
+    echo "Dobra večer";
+}
+
+?>
 
     <!-- HERO -->
    <section class="hero">
@@ -144,6 +157,7 @@
             </tr>
         </tbody>
     </table>
+            <a href="usluge.php" class="btn-svi-blogovi">Blok5 Test</a>
 </section>
 
  <!-- NOVOSTI / BLOG SEKCIJA -->

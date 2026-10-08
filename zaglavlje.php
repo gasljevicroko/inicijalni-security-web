@@ -18,5 +18,6 @@
             <a href="#tim">Naš Tim</a>
             <a href="#novosti">Novosti</a>
             <a href="#kontakt">Kontakt</a>
+            
         </nav>
     </header>
