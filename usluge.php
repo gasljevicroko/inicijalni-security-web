@@ -6,7 +6,6 @@ $procjena_rizika = 450;
 $sigurnosna_analiza = 1280;
 $edukacija_zaposlenika = 300;
 
-// Izračun cijena s PDV-om
 $procjena_pdv = $procjena_rizika * PDV;
 $procjena_ukupno = $procjena_rizika + $procjena_pdv;
 

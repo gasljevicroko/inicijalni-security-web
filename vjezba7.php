@@ -147,7 +147,7 @@ $misljenja = [
 </table>
 
 
-<!-- KONTAKT / IZBORNICI -->
+<!-- KONTAKT i IZBORNICI -->
 
 <h2>Kontakt</h2>
 
