@@ -31,7 +31,8 @@ $korisnici = json_decode($json, true) ?? [];
         $datum = $korisnik["datumRodjenja"] ?? "";
 
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($korisnik["ime"]) . "</td>";
+       echo "<td>" . htmlspecialchars($korisnik["ime"]) . "</td>";
+       //echo "<td>" . $korisnik["ime"] . "</td>";
         echo "<td>" . htmlspecialchars($korisnik["prezime"]) . "</td>";
         echo "<td>" . htmlspecialchars($datum) . "</td>";
         echo "</tr>";
@@ -47,6 +48,22 @@ echo "<br>";
 var_dump($korisnici[2]["datumRodjenja"] ?? "nepoznat");
 echo "<br>";
 var_dump(json_decode("[1, 2,]", true));
+?>
+
+<h2>Dodaj novog korisnika</h2>
+
+<form action="unos.php" method="post">
+    <input type="text" name="ime" placeholder="Ime" required>
+    <input type="text" name="prezime" placeholder="Prezime" required>
+    <input type="date" name="datumRodjenja">
+    <button type="submit">Spremi</button>
+</form>
+
+<br>
+<?php
+if (isset($_GET["greska"])) {
+    echo "<p style='color:red;'>Ime i prezime su obavezni.</p>";
+}
 ?>
 
 </body>
