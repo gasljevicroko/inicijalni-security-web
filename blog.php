@@ -9,7 +9,7 @@
 </head>
 <body>
 
-   <?php include "zaglavlje.php"; ?>
+   <?php include "dijelovi/zaglavlje.php"; ?>
 
     <!-- BLOG STRANICA MAIN -->
     <main class="blog-stranica">

@@ -12,7 +12,7 @@
     
 
   <?php 
-  $trenutnaStranica = "index.php";include "zaglavlje.php"; ?>
+  $trenutnaStranica = "index.php";include "dijelovi/zaglavlje.php"; ?>
   <?php
 
 $sat = (int) date("G");

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-     <?php include "zaglavlje.php"; ?>
+     <?php include "dijelovi/zaglavlje.php"; ?>
 
     <!-- PPUK SADRŽAJ -->
     <main class="ppuk-stranica">

@@ -37,7 +37,7 @@ $usluge = [
 <body>
     <?php
 $trenutnaStranica = "usluge.php";
-include "zaglavlje.php";
+include "dijelovi/zaglavlje.php";
 ?>
 <h1>Usluge</h1>
 
