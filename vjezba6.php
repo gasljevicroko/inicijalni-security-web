@@ -101,38 +101,31 @@ switch ($ime) {
 
 <?php
 echo "<br>";
-$dan = (int) date("6");
-$sat = (int) date("8");
+
+
+require_once "dijelovi/funkcije.php";
+
+echo "<br>";
+$dan = (int) date("N");
+$sat = (int) date("G");
 
 echo "Dan: $dan<br>";
 echo "Sat: $sat:00<br><br>";
 
-if ($dan >= 1 && $dan <= 5) {
-
-    if ($sat >= 8 && $sat < 16) {
-        $poruka = "Otvoreno – radimo do 16:00";
-        $klasa = "otvoreno";
-    } else {
-        $poruka = "Zatvoreno";
-        $klasa = "zatvoreno";
-    }
-
-} elseif ($dan == 6) {
-
-    if ($sat >= 9 && $sat < 13) {
+if (jeOtvoreno($dan, $sat)) {
+    if ($dan == 6) {
         $poruka = "Otvoreno – radimo do 13:00";
-        $klasa = "otvoreno";
     } else {
-        $poruka = "Zatvoreno";
-        $klasa = "zatvoreno";
+        $poruka = "Otvoreno – radimo do 16:00";
     }
 
+    $klasa = "otvoreno";
 } else {
-
     $poruka = "Zatvoreno";
     $klasa = "zatvoreno";
 }
 
 echo "<div class='$klasa'>$poruka</div>";
+
 
 ?>

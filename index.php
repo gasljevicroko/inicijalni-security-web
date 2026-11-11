@@ -13,19 +13,17 @@
 
   <?php 
   $trenutnaStranica = "index.php";include "dijelovi/zaglavlje.php"; ?>
-  <?php
+  
+
+<?php
+require_once "dijelovi/funkcije.php";
 
 $sat = (int) date("G");
 
-if ($sat < 12) {
-    echo "Dobro jutro";
-} elseif ($sat < 18) {
-    echo "Dobar dan";
-} else {
-    echo "Dobra večer";
-}
-
+echo pozdravPremaSatu($sat);
 ?>
+
+
 
     <!-- HERO -->
    <section class="hero">
@@ -244,7 +242,7 @@ if ($sat < 12) {
 
  
 
- <?php include "podnozje.php"; ?>
+ <?php include "dijelovi/podnozje.php"; ?>
 
     
 

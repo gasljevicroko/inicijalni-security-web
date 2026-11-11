@@ -1,5 +1,6 @@
 <?php
 
+require_once "dijelovi/funkcije.php";
 // 1. Brojevi od 1 do 10
 for ($i = 1; $i <= 10; $i++) {
     echo $i . " ";
@@ -227,16 +228,9 @@ foreach ($misljenja as $misljenje) {
     echo "<h3>$ime</h3>";
     echo "<p>$tekst</p>";
     echo "<div class='ocjena'>";
-
-    for ($i = 1; $i <= 5; $i++) {
-
-        if ($i <= $ocjena) {
-            echo "★";
-        } else {
-            echo "☆";
-        }
-
-    }
+    echo zvjezdice($ocjena);
+    echo "</div>";
+    echo "</div>";
 
     echo "</div>";
     echo "</div>";

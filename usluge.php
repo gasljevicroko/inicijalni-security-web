@@ -1,7 +1,8 @@
 
 <?php
+// TSD-4RT | RG / GA | 11.11.2026.
 
-const PDV = 0.25;
+require_once "dijelovi/funkcije.php";
 
 $usluge = [
     [
@@ -26,19 +27,21 @@ $usluge = [
     ]
 ];
 
+$trenutnaStranica = "usluge.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usluge</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php
-$trenutnaStranica = "usluge.php";
-include "dijelovi/zaglavlje.php";
-?>
+
+<?php include "dijelovi/zaglavlje.php"; ?>
+
 <h1>Usluge</h1>
 
 <table border="1">
@@ -51,25 +54,24 @@ include "dijelovi/zaglavlje.php";
     </tr>
 
     <?php
-
     $zbroj = 0;
 
     foreach ($usluge as $usluga) {
 
         $cijena = $usluga["cijena"];
-        $pdv = $cijena * PDV;
-        $ukupno = $cijena + $pdv;
+
+        $ukupno = cijenaSPdv($cijena);
+        $pdv = $ukupno - $cijena;
 
         $zbroj += $ukupno;
-
     ?>
 
     <tr>
         <td><?= $usluga["naziv"] ?></td>
         <td><?= $usluga["opis"] ?></td>
-        <td><?= number_format($cijena, 2, ',', '.') ?> €</td>
-        <td><?= number_format($pdv, 2, ',', '.') ?> €</td>
-        <td><?= number_format($ukupno, 2, ',', '.') ?> €</td>
+        <td><?= formatirajCijenu($cijena) ?></td>
+        <td><?= formatirajCijenu($pdv) ?></td>
+        <td><?= formatirajCijenu($ukupno) ?></td>
     </tr>
 
     <?php } ?>
@@ -78,14 +80,16 @@ include "dijelovi/zaglavlje.php";
 
 <p>
     Zbroj svih cijena s PDV-om:
-    <?= number_format($zbroj, 2, ',', '.') ?> €
+    <?= formatirajCijenu($zbroj) ?>
 </p>
 
 <p>
     Broj usluga: <?= count($usluge) ?>
 </p>
 
-<p>Cijene ažurirane: <?= date('d.m.Y.') ?></p>
+<p>
+    Cijene ažurirane: <?= date('d.m.Y.') ?>
+</p>
 
 </body>
 </html>
