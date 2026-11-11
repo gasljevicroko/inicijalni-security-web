@@ -1,19 +1,30 @@
+
 <?php
 
 const PDV = 0.25;
 
-$procjena_rizika = 450;
-$sigurnosna_analiza = 1280;
-$edukacija_zaposlenika = 300;
-
-$procjena_pdv = $procjena_rizika * PDV;
-$procjena_ukupno = $procjena_rizika + $procjena_pdv;
-
-$sigurnosna_pdv = $sigurnosna_analiza * PDV;
-$sigurnosna_ukupno = $sigurnosna_analiza + $sigurnosna_pdv;
-
-$edukacija_pdv = $edukacija_zaposlenika * PDV;
-$edukacija_ukupno = $edukacija_zaposlenika + $edukacija_pdv;
+$usluge = [
+    [
+        "naziv" => "Procjena rizika",
+        "opis" => "Procjena sigurnosnih rizika",
+        "cijena" => 450
+    ],
+    [
+        "naziv" => "Sigurnosna analiza",
+        "opis" => "Analiza sigurnosti sustava",
+        "cijena" => 1280
+    ],
+    [
+        "naziv" => "Edukacija zaposlenika",
+        "opis" => "Edukacija o sigurnosti",
+        "cijena" => 300
+    ],
+    [
+        "naziv" => "Izrada sigurnosnog plana",
+        "opis" => "Izrada plana zaštite sustava",
+        "cijena" => 500
+    ]
+];
 
 ?>
 
@@ -24,38 +35,55 @@ $edukacija_ukupno = $edukacija_zaposlenika + $edukacija_pdv;
     <title>Usluge</title>
 </head>
 <body>
-
+    <?php
+$trenutnaStranica = "usluge.php";
+include "zaglavlje.php";
+?>
 <h1>Usluge</h1>
 
 <table border="1">
     <tr>
         <th>Usluga</th>
+        <th>Opis</th>
         <th>Cijena bez PDV-a</th>
         <th>PDV</th>
         <th>Ukupno</th>
     </tr>
 
-    <tr>
-        <td>Procjena rizika</td>
-        <td><?= number_format($procjena_rizika, 2, ',', '.') ?> €</td>
-        <td><?= number_format($procjena_pdv, 2, ',', '.') ?> €</td>
-        <td><?= number_format($procjena_ukupno, 2, ',', '.') ?> €</td>
-    </tr>
+    <?php
+
+    $zbroj = 0;
+
+    foreach ($usluge as $usluga) {
+
+        $cijena = $usluga["cijena"];
+        $pdv = $cijena * PDV;
+        $ukupno = $cijena + $pdv;
+
+        $zbroj += $ukupno;
+
+    ?>
 
     <tr>
-        <td>Sigurnosna analiza</td>
-        <td><?= number_format($sigurnosna_analiza, 2, ',', '.') ?> €</td>
-        <td><?= number_format($sigurnosna_pdv, 2, ',', '.') ?> €</td>
-        <td><?= number_format($sigurnosna_ukupno, 2, ',', '.') ?> €</td>
+        <td><?= $usluga["naziv"] ?></td>
+        <td><?= $usluga["opis"] ?></td>
+        <td><?= number_format($cijena, 2, ',', '.') ?> €</td>
+        <td><?= number_format($pdv, 2, ',', '.') ?> €</td>
+        <td><?= number_format($ukupno, 2, ',', '.') ?> €</td>
     </tr>
 
-    <tr>
-        <td>Edukacija zaposlenika</td>
-        <td><?= number_format($edukacija_zaposlenika, 2, ',', '.') ?> €</td>
-        <td><?= number_format($edukacija_pdv, 2, ',', '.') ?> €</td>
-        <td><?= number_format($edukacija_ukupno, 2, ',', '.') ?> €</td>
-    </tr>
+    <?php } ?>
+
 </table>
+
+<p>
+    Zbroj svih cijena s PDV-om:
+    <?= number_format($zbroj, 2, ',', '.') ?> €
+</p>
+
+<p>
+    Broj usluga: <?= count($usluge) ?>
+</p>
 
 <p>Cijene ažurirane: <?= date('d.m.Y.') ?></p>
 

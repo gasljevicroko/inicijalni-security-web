@@ -187,12 +187,44 @@ $misljenja = [
 <h2>Mišljenja klijenata</h2>
 
 <?php
+
+// TSD-4RT | RG  | 11.11.2026.
+
+$misljenja = [
+    [
+        "ime" => "Marko",
+        "tekst" => "Odlična usluga i profesionalan pristup.",
+        "ocjena" => 5
+    ],
+    [
+        "ime" => "Ivan",
+        "tekst" => "Brzo i kvalitetno odrađen posao.",
+        "ocjena" => 4
+    ],
+    [
+        "ime" => "Ana",
+        "tekst" => "Zadovoljna sam uslugom.",
+        "ocjena" => 5
+    ]
+];
+?>
+
+<h2>Mišljenja klijenata</h2>
+
+<?php
+
+$zbrojOcjena = 0;
+
 foreach ($misljenja as $misljenje) {
 
-    $tekst = $misljenje[0];
-    $ocjena = $misljenje[1];
+    $ime = $misljenje["ime"];
+    $tekst = $misljenje["tekst"];
+    $ocjena = $misljenje["ocjena"];
+
+    $zbrojOcjena += $ocjena;
 
     echo "<div class='misljenje'>";
+    echo "<h3>$ime</h3>";
     echo "<p>$tekst</p>";
     echo "<div class='ocjena'>";
 
@@ -209,7 +241,13 @@ foreach ($misljenja as $misljenje) {
     echo "</div>";
     echo "</div>";
 }
+
+$prosjek = $zbrojOcjena / count($misljenja);
+
+echo "<p>Prosječna ocjena: " . number_format($prosjek, 1, ',', '.') . "</p>";
+
 ?>
+
 
 </body>
 </html>

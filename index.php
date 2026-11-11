@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
 
-  <?php include "zaglavlje.php"; ?>
+  <?php 
+  $trenutnaStranica = "index.php";include "zaglavlje.php"; ?>
   <?php
 
 $sat = (int) date("G");
