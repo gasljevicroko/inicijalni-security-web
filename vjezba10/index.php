@@ -66,5 +66,50 @@ if (isset($_GET["greska"])) {
 }
 ?>
 
+
+<?php
+$trazi = trim($_GET["trazi"] ?? "");   // na vrhu datoteke, prije obrasca
+?>
+
+<form method="get">
+    <input type="text" name="trazi" value="<?php echo htmlspecialchars($trazi); ?>">
+    <button type="submit">Traži</button>
+</form>
+
+<table>
+    <tr>
+        <th>Ime</th>
+        <th>Prezime</th>
+    </tr>
+
+    <?php
+    foreach ($korisnici as $korisnik) {
+        $uPrezimenu = mb_stripos($korisnik["prezime"], $trazi) !== false;
+        $uImenu     = mb_stripos($korisnik["ime"], $trazi) !== false;
+
+        if ($trazi !== "" && !($uPrezimenu || $uImenu)) {
+            continue;   // ni prezime ni ime ne sadrže traženo, preskoči redak
+        }
+        ?>
+        <tr>
+            <td><?php echo htmlspecialchars($korisnik["ime"]); ?></td>
+            <td><?php echo htmlspecialchars($korisnik["prezime"]); ?></td>
+        </tr>
+        <?php
+        var_dump(mb_stripos("Perić", "per"));
+        echo "<br><br>";
+        var_dump(mb_stripos("Marić", "rić"));
+        echo "<br><br>";
+        var_dump(mb_stripos("Perić", "per") == false);
+        echo "<br><br>";
+        var_dump(mb_stripos("Perić", "per") === false);
+    }
+    ?>
+</table>
+
+
+
+
+
 </body>
 </html>
