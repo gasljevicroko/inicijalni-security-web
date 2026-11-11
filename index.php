@@ -195,25 +195,52 @@ echo pozdravPremaSatu($sat);
     <p class="podnaslov">Imate pitanja ili želite zatražiti ponudu? Pošaljite nam poruku i odgovorit ćemo vam u najkraćem roku.</p>
 
     <div class="kontakt-okvir">
-        <form onsubmit="return validirajFormu(event)">
-            <div class="forma-grupa">
-                <label for="ime">Ime i Prezime *</label>
-                <input type="text" id="ime" name="ime" placeholder="Npr. Ivan Horvat" required>
-            </div>
+        
+<form action="spremi_upit.php" method="post">
+    <div class="forma-grupa">
+        <label for="ime">Ime i Prezime *</label>
+        <input type="text" id="ime" name="ime"
+               placeholder="Npr. Ivan Horvat" required>
+    </div>
 
-            <div class="forma-grupa">
-                <label for="email">E-mail Adresa *</label>
-                <input type="email" id="email" name="email" placeholder="vaš.email@domena.hr" required>
-            </div>
+    <div class="forma-grupa">
+        <label for="email">E-mail Adresa *</label>
+        <input type="email" id="email" name="email"
+               placeholder="vas.email@domena.hr" required>
+    </div>
 
-            <div class="forma-grupa">
-                <label for="poruka">Vaša Poruka *</label>
-                <textarea id="poruka" name="poruka" rows="5" placeholder="Napišite kako vam možemo pomoći..." required></textarea>
-            </div>
+    <div class="forma-grupa">
+        <label for="usluga">Odaberite uslugu *</label>
+        <select id="usluga" name="usluga" required>
+            <option value="">Odaberite uslugu</option>
+            <option value="Procjena rizika">Procjena rizika</option>
+            <option value="Analiza mreže">Analiza mreže</option>
+            <option value="Edukacija zaposlenika">Edukacija zaposlenika</option>
+            <option value="Testiranje lozinki">Testiranje lozinki</option>
+        </select>
+    </div>
 
-            <button type="submit" class="btn-kontakt">Pošalji poruku</button>
-            <p class="odgovor"></p>
-        </form>
+    <div class="forma-grupa">
+        <label for="poruka">Vaša Poruka *</label>
+        <textarea id="poruka" name="poruka" rows="5"
+                  placeholder="Napišite kako vam možemo pomoći..."
+                  required></textarea>
+    </div>
+
+    <button type="submit" class="btn-kontakt">
+        Pošalji poruku
+    </button>
+</form>
+
+<?php
+if (isset($_GET["status"]) && $_GET["status"] == "uspjeh") {
+    echo "<p class='odgovor'>Upit je zaprimljen.</p>";
+}
+
+if (isset($_GET["status"]) && $_GET["status"] == "greska") {
+    echo "<p class='odgovor'>Molimo ispunite sva polja.</p>";
+}
+?>
 
         <div class="karta-lokacija">
             <h3>Gdje se nalazimo</h3>
